@@ -7,16 +7,16 @@ A deployment-ready graphite cluster on top of Kubernetes.
 2. **Graphite data nodes** as a stateful set with persistent volumes
 3. **Graphite query node** to be used as a query gateway to the data nodes
 5. **Config Map** used for storage schema 
-4. **Graphite Version 1.1.5** I used the latests release
+4. **Graphite Version 1.1.6** I used the latests release
 
 ## Requirements:
-1. Kubernetes version v1.11.x
+1. Kubernetes version >v1.13.x
 2. kubectl configured to work with your Kubernetes API
 
 ## Deployment:
 1. Clone this repository
-2. Create Config Maps: kubectl create configmap graphite-config --from-file=graphite-config
-3. Run: kubctl create for every compontent and service
+2. Tweak the Kubernetes manifests as you want
+3. Run: ./kubernetes/deploy.sh
 
 ## Usage:
 
@@ -28,10 +28,9 @@ A deployment-ready graphite cluster on top of Kubernetes.
 
 kubectl port-forward svc/graphite 8080:80
 
-//TODO
 
 ## Building your own images
-If you need to change and edit docker images //TODO
+If you need to change and edit docker images
 
 ## Changing an active cluster configuration
 
