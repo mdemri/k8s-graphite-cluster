@@ -15,6 +15,16 @@ spec:
         component: graphite
         app: graphite-node
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - graphite-node
+            topologyKey: "kubernetes.io/hostname"
       terminationGracePeriodSeconds: 10
       containers:
       - name: graphite-node

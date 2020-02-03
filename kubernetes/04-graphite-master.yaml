@@ -33,6 +33,16 @@ spec:
           configMap:
             name: graphite-config
             defaultMode: 420
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - graphite
+            topologyKey: "kubernetes.io/hostname"
 ---
 apiVersion: v1
 kind: Service
