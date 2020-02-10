@@ -327,3 +327,6 @@ LOG_RENDERING_PERFORMANCE = True
 #from graphite.app_settings import *
 
 
+ENABLE_TAGS = False
+#https://github.com/graphite-project/graphite-web/issues/2248
+TAGDB=None

@@ -9,7 +9,7 @@ RUN pip install wheel
 RUN pip install --upgrade setuptools
 RUN pip install gunicorn
 
-RUN     pip install "Twisted==19.10.0"
+RUN     pip install Twisted
 RUN     pip install pytz
 RUN     git clone https://github.com/graphite-project/whisper.git /src/whisper            && \
         cd /src/whisper                                                                   && \
@@ -24,7 +24,7 @@ RUN     git clone https://github.com/graphite-project/carbon.git /src/carbon    
 
 RUN     git clone https://github.com/graphite-project/graphite-web.git /src/graphite-web  && \
         cd /src/graphite-web                                                              && \
-        git checkout ${GRAPHITE_VERSION}								                  && \
+        git checkout ${GRAPHITE_VERSION}						  && \
         python setup.py install                                                           && \
         pip install -r requirements.txt                                                   && \
         python check-dependencies.py
